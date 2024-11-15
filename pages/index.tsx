@@ -6,8 +6,8 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Welcome!!</h1>
-      <p>Please enter your query in the box below:</p>
+      <h1>¡Bienvenido!</h1>
+      <p>Inserte su consulta en la siguiente barra:</p>
       <input
         type="text"
         value={query}
@@ -16,7 +16,7 @@ export default function Home() {
         }
       />
       <div>
-        {QueryProcessor(query) == "" ? "No Match" : QueryProcessor(query)}
+        {QueryProcessor(query) == "" ? "Respuesta no encontrada." : QueryProcessor(query)}
       </div>
     </div>
   );
