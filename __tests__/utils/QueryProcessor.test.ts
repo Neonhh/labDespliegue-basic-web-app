@@ -35,5 +35,9 @@ describe("QueryProcessor", () => {
     	));
     });
 
-    
+    test('should return the sum of two numbers', () => {
+            const query = "what is 52 plus 28?";
+            const response: string = QueryProcessor(query);
+            expect(response).toBe("80");
+        });
 });

@@ -19,5 +19,14 @@ export default function QueryProcessor(query: string): string {
     return ( "Nestor" );
   }
 
+  else if (query.toLowerCase().includes(" plus ")) {
+
+    const numbers = query.match(/\d+/g);
+      if (numbers && numbers.length === 2) {
+        const sum = parseInt(numbers[0]) + parseInt(numbers[1]);
+        return (sum.toString());
+        }
+  }
+
   return "";
 }
