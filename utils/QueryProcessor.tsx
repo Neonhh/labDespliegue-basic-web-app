@@ -28,5 +28,21 @@ export default function QueryProcessor(query: string): string {
         }
   }
 
+  else if (query.toLowerCase().includes(" max ")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers && numbers.length === 3) {
+      const max = Math.max(parseInt(numbers[0]), parseInt(numbers[1]), parseInt(numbers[2]));
+      return (max.toString());
+    }
+  }
+
+  else if (query.toLowerCase().includes(" multiplied by ")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers && numbers.length === 2) {
+      const product = parseInt(numbers[0]) * parseInt(numbers[1]);
+      return (product.toString());
+    }
+  }
+
   return "";
 }

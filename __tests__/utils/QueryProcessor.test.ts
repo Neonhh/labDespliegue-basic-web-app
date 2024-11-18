@@ -40,4 +40,16 @@ describe("QueryProcessor", () => {
             const response: string = QueryProcessor(query);
             expect(response).toBe("80");
         });
+    
+    test('should return the max of three numbers', () => {
+            const query = "what is the max of 52, 28 and 100?";
+            const response: string = QueryProcessor(query);
+            expect(response).toBe("100");
+        });
+    
+    test('should return the product of two numbers', () => {
+            const query = "what is 5 multiplied by 10?";
+            const response: string = QueryProcessor(query);
+            expect(response).toBe("50");
+        });
 });
