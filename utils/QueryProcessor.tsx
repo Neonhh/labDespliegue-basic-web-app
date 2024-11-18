@@ -1,3 +1,4 @@
+import assert from 'assert';
 export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("shakespeare")) {
     return (
@@ -41,6 +42,41 @@ export default function QueryProcessor(query: string): string {
     if (numbers && numbers.length === 2) {
       const product = parseInt(numbers[0]) * parseInt(numbers[1]);
       return (product.toString());
+    }
+  }
+
+  else if (query.toLowerCase().includes(" primes:")) {
+    const numbers = query.match(/\d+/g);
+
+    if (numbers) {
+      const primes = numbers.filter((num) => {
+        if (parseInt(num) <= 1) {
+          return false;
+        }
+        for (let i = 2; i <= Math.sqrt(parseInt(num)); i++) {
+          if (parseInt(num) % i === 0) {
+            return false;
+          }
+        }
+        return true;
+      });
+      return primes.join(", ");
+    }
+  }
+
+  else if (query.toLowerCase().includes(" both a square and a cube:")) {
+    const numbers = query.match(/\d+/g);
+
+    if (numbers) {
+      const squaresAndCubes = numbers.filter((num) => {
+        const sqrt = Math.sqrt(parseInt(num));
+        const cbrt = Math.cbrt(parseInt(num));
+        if (Math.floor(sqrt) ** 2 === parseInt(num) && Math.floor(cbrt) ** 3 === parseInt(num)) {
+          return true;
+        }
+        return false;
+      });
+      return squaresAndCubes.join(", ");
     }
   }
 

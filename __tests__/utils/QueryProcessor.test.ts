@@ -52,4 +52,11 @@ describe("QueryProcessor", () => {
             const response: string = QueryProcessor(query);
             expect(response).toBe("50");
         });
+    
+    test('should return the numbers that are primes', () => {
+            const query = "Which of the following numbers are primes: 99, 16, 3, 6, 11?";
+            const response: string = QueryProcessor(query);
+            console.log(response);
+            expect(response).toBe("3, 11");
+        });
 });
